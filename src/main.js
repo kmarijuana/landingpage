@@ -10,8 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faEnvelopeCircleCheck,faPen } from '@fortawesome/free-solid-svg-icons'
-// import { faLine,faFacebook } from '@fortawesome/free-brands-svg-icons'
-// import {  } from '@fortawesome/free-regular-svg-icons'
 library.add(faEnvelopeCircleCheck,faPen)
 
 createApp(App).use(store).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

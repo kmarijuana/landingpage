@@ -3,8 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state () {
     return {
-      // serviceUrl : `http://localhost/sacit_virtual/api/controllers/`,
-      serviceUrl : `${window.location.origin == 'http://localhost:8080'?`http://localhost/sacit_virtual/api/controllers/`:`https://sacitvrshop.com/api/controllers/`}`,
+      serviceUrl : `${window.location.origin == 'http://localhost:8080'?`http://localhost/api/`:`https://production.com/api/`}`,
       isLogin:null
     }
     

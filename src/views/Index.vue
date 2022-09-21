@@ -1115,8 +1115,8 @@
           </div>
         </div>
 
-        <div class="bg-base-200" ref="about" id="about">
-          <div class="container mx-auto">
+        <div class="lg:bg-base-200 grid grid-col w-full px-4 lg:px-auto" ref="about" id="about">
+          <div class="container mx-auto bg-base-200">
             <div class="card lg:card-side">
               <div class="card-body items-center text-center self-center">
                 <div class="card-title flex flex-col w-full">
@@ -1143,8 +1143,8 @@
           </div>
         </div>
 
-        <div class="bg-base-100" ref="events" id="events">
-          <div class="container mx-auto py-10">
+        <div class="lg:bg-base-100 px-4 lg:px-auto" ref="events" id="events">
+          <div class="container mx-auto py-10 bg-base-100">
             <div class="card">
               <div class="card-body items-center text-center self-center">
                 <div class="card-title flex flex-col w-full">
@@ -1231,7 +1231,7 @@
 
 <script>
 // @ is an alias to /src
-import MemberLayout from "@/components/layouts/Member.vue";
+import MemberLayout from "@/components/layouts/App.vue";
 
 export default {
   name: "Dashboard",
