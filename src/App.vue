@@ -6,6 +6,7 @@
 
 <style lang="scss">
 #app,
+html,
 * {
   font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -20,6 +21,7 @@
   --background-without-opacity: rgba(255, 255, 255, 0.7);
   --column-width: 42rem;
   --column-margin-top: 4rem;
+  scroll-behavior: smooth;
 }
 
 body {

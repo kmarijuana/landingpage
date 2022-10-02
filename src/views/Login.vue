@@ -34,7 +34,9 @@
                 />
               </div>
               <div class="form-control mt-10">
-                <button class="btn btn-primary" @click="authentication()">Login</button>
+                <button class="btn btn-primary" @click="authentication()">
+                  Login
+                </button>
               </div>
             </div>
           </div>
@@ -47,8 +49,7 @@
 <script>
 export default {
   name: "Login",
-  components: {
-  },
+  components: {},
   computed: {
     ServiceUrl() {
       return this.$store.getters.serviceUrl;
@@ -62,7 +63,7 @@ export default {
           password: "",
         },
       },
-    }
+    };
   },
   methods: {
     authentication() {
@@ -73,17 +74,16 @@ export default {
         },
         body: JSON.stringify({
           username: this.authen.form.username,
-          password: this.authen.form.password
+          password: this.authen.form.password,
         }),
       })
         .then((response) => response.json())
         .then((res) => {
           if (res.success) {
-            localStorage.setItem('jwt',res.jwt)
-            this.$router.push({ name: 'dashboard' })
-
+            localStorage.setItem("jwt", res.jwt);
+            this.$router.push({ name: "dashboard" });
           } else {
-            localStorage.removeItem('jwt')
+            localStorage.removeItem("jwt");
           }
         })
         .catch((error) => {

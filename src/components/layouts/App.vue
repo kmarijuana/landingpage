@@ -2,7 +2,12 @@
   <div>
     <slot name="modal"></slot>
     <div class="shadow bg-base-100 drawer h-100">
-      <input id="drawer-menu" v-model="menu" type="checkbox" class="drawer-toggle" />
+      <input
+        id="drawer-menu"
+        v-model="menu"
+        type="checkbox"
+        class="drawer-toggle"
+      />
       <div class="flex flex-col items-center justify-center drawer-content">
         <div class="drawer">
           <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -66,22 +71,39 @@
                   </a>
                 </div>
               </div>
-              <div class="flex-none mr-2">
+              <div class="flex-none mr-2" v-if="isLogin" >
+                <label tabindex="0" class="btn btn-ghost" @click="Logout">
+                  Logout
+                </label>
+              <!-- </div>
+              <div class="flex-none mr-2"> -->
+                
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar" for="modal-profile">
+                  <div class="w-10 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" />
+                  </div>
+                </label>
+              </div>
+              <div class="flex-none mr-2" v-else>
                 <label
                   for="modal-joinnows"
                   class="btn btn-sm btn-outline modal-button"
-                  >Login / Sign up</label
                 >
+                  Login / Sign up
+                </label>
               </div>
             </div>
             <slot name="view"></slot>
           </div>
         </div>
       </div>
-      <div class="drawer-side w-full" >
+      <div class="drawer-side w-full">
         <label for="drawer-menu" class="drawer-overlay"></label>
-        <div class="bg-base-200 w-full" :class="`${menu!=true ? 'opacity-20' : 'opacity-100'}`"
-              style="transition: all 0.5s ease-in">
+        <div
+          class="bg-base-200 w-full"
+          :class="`${menu != true ? 'opacity-40' : 'opacity-100'}`"
+          style="transition: all 0.25s ease-in"
+        >
           <div
             class="
               z-20
@@ -129,25 +151,45 @@
             <li></li>
             <li class="menu-title"><span>Application Menu</span></li>
             <li>
-              <a sveltekit:prefetch="" href="#home" class="flex gap-4" @click="menu=false">
+              <a
+                sveltekit:prefetch=""
+                href="#home"
+                class="flex gap-4"
+                @click="menu = false"
+              >
                 <span class="flex-1 text-1xl font-bold">Home</span>
               </a>
             </li>
 
             <li>
-              <a sveltekit:prefetch="" href="#about" class="flex gap-4" @click="menu=false">
+              <a
+                sveltekit:prefetch=""
+                href="#about"
+                class="flex gap-4"
+                @click="menu = false"
+              >
                 <span class="flex-1 text-1xl font-bold">About</span>
               </a>
             </li>
 
             <li>
-              <a sveltekit:prefetch="" href="#events" class="flex gap-4" @click="menu=false">
+              <a
+                sveltekit:prefetch=""
+                href="#events"
+                class="flex gap-4"
+                @click="menu = false"
+              >
                 <span class="flex-1 text-1xl font-bold">Events</span>
               </a>
             </li>
 
             <li>
-              <a sveltekit:prefetch="" href="#contact" class="flex gap-4" @click="menu=false">
+              <a
+                sveltekit:prefetch=""
+                href="#contact"
+                class="flex gap-4"
+                @click="menu = false"
+              >
                 <span class="flex-1 text-1xl font-bold">Contact</span>
               </a>
             </li>
@@ -189,7 +231,7 @@ export default {
       version: "0.00.1",
       routeList: [],
       scrollTop: 0,
-      menu:false
+      menu: false,
     };
   },
   computed: {
@@ -201,10 +243,11 @@ export default {
     changepage(page) {
       this.$router.push({ name: `${page}` });
     },
-    logout() {
-      localStorage.removeItem("jwt");
-      this.$store.commit("isLogin", false);
-      this.$router.push({ name: "login" });
+    Logout() {
+      // localStorage.removeItem("jwt");
+      // this.$store.commit("isLogin", false);
+      // this.$router.push({ name: "login" });
+      this.$emit('Logout')
     },
     scrolling() {
       this.scrollTop = this.$refs.msgContainer.scrollTop;
